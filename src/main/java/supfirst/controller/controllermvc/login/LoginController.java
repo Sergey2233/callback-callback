@@ -1,4 +1,4 @@
-package supfirst.controller.controllermvc;
+package supfirst.controller.controllermvc.login;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,9 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
         LOGGER.debug("Getting login page, error={}", error);
-        return new ModelAndView("login", "error", error);
+        return new ModelAndView("login/login", "error", error);
     }
+
+    
 
 }

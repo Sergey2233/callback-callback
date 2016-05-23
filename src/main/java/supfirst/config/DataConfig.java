@@ -14,7 +14,9 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
- 
+import org.springframework.beans.factory.annotation.Value;
+import com.jolbox.bonecp.BoneCPDataSource;
+
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 //import java.util.Properties;
@@ -35,20 +37,64 @@ public class DataConfig{
     private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "db.entitymanager.packages.to.scan";
     private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN_USER = "db.entitymanager.packages.to.scan.user";
     private static final String PROP_HIBERNATE_HBM2DDL_AUTO = "db.hibernate.hbm2ddl.auto";
- 
+    private static final String IDLE_MAXAGE_IN_MINUTES = "bonecp.idleMaxAgeInMinutes";
     @Resource
     private Environment env;
- 
-    @Bean
+    @Value("${bonecp.url}")
+	private String jdbcUrl;
+
+	@Value("${bonecp.username}")
+	private String jdbcUsername;
+
+	@Value("${bonecp.password}")
+	private String jdbcPassword;
+
+	@Value("${bonecp.driverClass}")
+	private String driverClass;
+
+	@Value("${bonecp.idleMaxAgeInMinutes}")
+	private Integer idleMaxAgeInMinutes;
+
+	@Value("${bonecp.idleConnectionTestPeriodInMinutes}")
+	private Integer idleConnectionTestPeriodInMinutes;
+
+	@Value("${bonecp.maxConnectionsPerPartition}")
+	private Integer maxConnectionsPerPartition;
+
+	@Value("${bonecp.minConnectionsPerPartition}")
+	private Integer minConnectionsPerPartition;
+
+	@Value("${bonecp.partitionCount}")
+	private Integer partitionCount;
+
+	@Value("${bonecp.acquireIncrement}")
+	private Integer acquireIncrement;
+
+	@Value("${bonecp.statementsCacheSize}")
+	private Integer statementsCacheSize;
+	@Bean(destroyMethod = "close")
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
- 
-        dataSource.setDriverClassName(env.getRequiredProperty(PROP_DATABASE_DRIVER));
-        dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
-        dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
-        dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
- 
-        return dataSource;
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+// 
+//        dataSource.setDriverClassName(env.getRequiredProperty(PROP_DATABASE_DRIVER));
+//        dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
+//        dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
+//        dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
+      
+      
+    	BoneCPDataSource dataSource = new BoneCPDataSource();
+		dataSource.setDriverClass(driverClass);
+		dataSource.setJdbcUrl(jdbcUrl);
+		dataSource.setUsername(jdbcUsername);
+		dataSource.setPassword(jdbcPassword);
+		dataSource.setIdleConnectionTestPeriodInMinutes(idleConnectionTestPeriodInMinutes);
+		dataSource.setIdleMaxAgeInMinutes(idleMaxAgeInMinutes);
+		dataSource.setMaxConnectionsPerPartition(maxConnectionsPerPartition);
+		dataSource.setMinConnectionsPerPartition(minConnectionsPerPartition);
+		dataSource.setPartitionCount(partitionCount);
+		dataSource.setAcquireIncrement(acquireIncrement);
+		dataSource.setStatementsCacheSize(statementsCacheSize);
+		return dataSource;
     }
  
     @Bean

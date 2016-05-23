@@ -1,4 +1,4 @@
-package supfirst.controller.controllermvc;
+package supfirst.controller.controllermvc.login;
 
 
 import org.slf4j.Logger;
@@ -24,7 +24,7 @@ public class UsersController {
     @RequestMapping("/users")
     public ModelAndView getUsersPage() {
         LOGGER.debug("Getting users page");
-        return new ModelAndView("users", "users", userService.getAllUsers());
+        return new ModelAndView("/login/users", "users", userService.getAllUsers());
     }
 
 

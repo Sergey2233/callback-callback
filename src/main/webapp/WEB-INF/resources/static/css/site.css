@@ -1,0 +1,54 @@
+/* CLASS CSS All PAGE   */
+
+body {
+	/*background: #eeeded;*/
+	background: #dbdeef;
+}
+.ul-none{
+	list-style-type:none;
+	margin-left: 0 px;
+	padding-left: 0 px;
+}
+.ul-none li{
+	width:100%;
+	margin-left: 0 px  !important;
+	padding-left: 0 px   !important;
+}
+.notvisible{
+	visibility:hidden;
+}
+@media all and (max-width: 800px) {
+    .adp-menu-text {
+		font-size: 14px;
+		padding: 10px 15px;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .adp-menu-text {
+		font-size: 14px;
+		padding-left: 0.45vw !important;
+    	padding-right: 0.45vw !important;
+    }
+}
+
+@media all and (min-width:992px) {
+    .adp-menu-text {
+		font-size: 14px;
+		padding: 10px 15px;
+    }
+}
+
+.center-inner {
+	width: 50%;
+	margin-top: 10%;
+	float: left;
+	padding-left: 0px;
+	
+}
+
+/* CALLBACK */
+.header-menu {
+	height: 100px;
+	background-color: #5a9fa5;
+}

@@ -1,4 +1,4 @@
-package supfirst.controller.controllermvc;
+package supfirst.controller.controllermvc.index;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +15,7 @@ public class IndexController {
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
        System.out.println("sadksajkdskad////////////////");
-		return "home";
+		return "index";
 	}
 
 	
