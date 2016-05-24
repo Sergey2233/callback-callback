@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 
 import supfirst.domain.entity.CurrentUser;
 import supfirst.entity.User;
-import supfirst.domain.service.UserService;
+import supfirst.domain.service.IUserService;
 
 @Service
 public class CurrentUserDetailsService implements UserDetailsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CurrentUserDetailsService.class);
-    private final UserService userService;
+    private final IUserService userService;
 
     @Autowired
-    public CurrentUserDetailsService(UserService userService) {
+    public CurrentUserDetailsService(IUserService userService) {
         this.userService = userService;
     }
 

@@ -7,7 +7,7 @@ import java.util.Optional;
 import supfirst.entity.User;
 import supfirst.domain.entity.UserCreateForm;
 
-public interface UserService {
+public interface IUserService {
 
     Optional<User> getUserById(long id);
 

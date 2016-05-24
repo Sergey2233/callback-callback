@@ -20,13 +20,13 @@
 <body>
 	<div class="conrainer ">
 		<%@ include file="header.jsp"%>
-    </div>
-	<script type="text/javascript" src="<c:url value="/js/bootstrap.js" />">	
+	</div>
+	<script type="text/javascript" src="<c:url value="/js/bootstrap.js" />">
+		
 	</script>
 	<script type="text/javascript"
 		src="<c:url value="/js/jquery-2.1.4.js" />"></script>
-		<script type="text/javascript"
-		src="<c:url value="/js/site.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/site.js" />"></script>
 
 </body>
 </html>

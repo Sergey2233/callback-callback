@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
    
@@ -53,7 +53,6 @@ public class UserServiceImpl implements UserService {
         user.setEmail(form.getEmail());
         user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setRole(form.getRole());
-        System.out.println("user///"+userRepository==null);
         return userRepository.save(user);
     }
 

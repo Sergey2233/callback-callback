@@ -60,7 +60,7 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter{
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
-
+/* internationalization*/
     @Bean
     public LocaleResolver localeResolver() {
        SessionLocaleResolver slr = new SessionLocaleResolver();

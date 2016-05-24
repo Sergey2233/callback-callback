@@ -28,16 +28,16 @@ import javax.sql.DataSource;
 @EnableJpaRepositories("supfirst")
 public class DataConfig{
  
-    private static final String PROP_DATABASE_DRIVER = "db.driver";
-    private static final String PROP_DATABASE_PASSWORD = "db.password";
-    private static final String PROP_DATABASE_URL = "db.url";
-    private static final String PROP_DATABASE_USERNAME = "db.username";
-    private static final String PROP_HIBERNATE_DIALECT = "db.hibernate.dialect";
-    private static final String PROP_HIBERNATE_SHOW_SQL = "db.hibernate.show_sql";
-    private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "db.entitymanager.packages.to.scan";
-    private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN_USER = "db.entitymanager.packages.to.scan.user";
-    private static final String PROP_HIBERNATE_HBM2DDL_AUTO = "db.hibernate.hbm2ddl.auto";
-    private static final String IDLE_MAXAGE_IN_MINUTES = "bonecp.idleMaxAgeInMinutes";
+//    private static final String PROP_DATABASE_DRIVER = "db.driver";
+//    private static final String PROP_DATABASE_PASSWORD = "db.password";
+//    private static final String PROP_DATABASE_URL = "db.url";
+//    private static final String PROP_DATABASE_USERNAME = "db.username";
+//    private static final String PROP_HIBERNATE_DIALECT = "db.hibernate.dialect";
+//    private static final String PROP_HIBERNATE_SHOW_SQL = "db.hibernate.show_sql";
+      private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "db.entitymanager.packages.to.scan";
+      private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN_USER = "db.entitymanager.packages.to.scan.user";
+//    private static final String PROP_HIBERNATE_HBM2DDL_AUTO = "db.hibernate.hbm2ddl.auto";
+//    private static final String IDLE_MAXAGE_IN_MINUTES = "bonecp.idleMaxAgeInMinutes";
     @Resource
     private Environment env;
     @Value("${bonecp.url}")

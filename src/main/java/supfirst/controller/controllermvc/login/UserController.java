@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import supfirst.domain.entity.Role;
 import supfirst.domain.entity.UserCreateForm;
-import supfirst.domain.service.UserService;
+import supfirst.domain.service.IUserService;
 import supfirst.domain.validation.UserCreateFormValidator;
 
 import javax.validation.Valid;
@@ -24,11 +24,11 @@ import java.util.NoSuchElementException;
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    private final UserService userService;
+    private final IUserService userService;
     private final UserCreateFormValidator userCreateFormValidator;
 
     @Autowired
-    public UserController(UserService userService, UserCreateFormValidator userCreateFormValidator) {
+    public UserController(IUserService userService, UserCreateFormValidator userCreateFormValidator) {
         this.userService = userService;
         this.userCreateFormValidator = userCreateFormValidator;
     }

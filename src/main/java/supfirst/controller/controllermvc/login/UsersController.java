@@ -8,16 +8,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import supfirst.domain.service.UserService;
+import supfirst.domain.service.IUserService;
 
 @Controller
 public class UsersController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UsersController.class);
-    private final UserService userService;
+    private final IUserService userService;
 
     @Autowired
-    public UsersController(UserService userService) {
+    public UsersController(IUserService userService) {
         this.userService = userService;
     }
 

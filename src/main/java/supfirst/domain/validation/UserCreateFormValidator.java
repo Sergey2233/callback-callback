@@ -9,16 +9,16 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import supfirst.domain.entity.UserCreateForm;
-import supfirst.domain.service.UserService;
+import supfirst.domain.service.IUserService;
 
 @Component
 public class UserCreateFormValidator implements Validator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserCreateFormValidator.class);
-    private final UserService userService;
+    private final IUserService userService;
 
     @Autowired
-    public UserCreateFormValidator(UserService userService) {
+    public UserCreateFormValidator(IUserService userService) {
         this.userService = userService;
     }
 
