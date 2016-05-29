@@ -42,28 +42,28 @@ public class UserController {
 
     @RequestMapping("/public/callback")
     public String getUserPage() {
-        LOGGER.debug("Getting user page callback");
+        LOGGER.info("Getting user page callback");
         return  "callback/callback";
     }
     @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #id)")
     @RequestMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable Long id) {
-        LOGGER.debug("Getting user page for user={}", id);
+        LOGGER.info("Getting user page for user={}", id);
         return new ModelAndView("login/user", "user", userService.getUserById(id)
                 .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
     }
 
-    @PreAuthorize("hasAuthority('USER')")
-    @RequestMapping(value = "/user/create", method = RequestMethod.GET)
+   //@PreAuthorize("hasAuthority('USER')")
+    @RequestMapping(value = "/public/create", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {
-        LOGGER.debug("Getting user create form");
+        LOGGER.info("Getting user create form");
         return new ModelAndView("login/user_create", "form", new UserCreateForm());
     }
 
-    @PreAuthorize("hasAuthority('USER')")
-    @RequestMapping(value = "/user/create", method = RequestMethod.POST)
+   // @PreAuthorize("hasAuthority('USER')")
+    @RequestMapping(value = "/public/create", method = RequestMethod.POST)
     public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
-        LOGGER.debug("Processing user create form={}, bindingResult={}", form, bindingResult);
+        LOGGER.info("Processing user create form={}, bindingResult={}", form, bindingResult);
         if (bindingResult.hasErrors()) {
             // failed validation
             return "login/user_create";

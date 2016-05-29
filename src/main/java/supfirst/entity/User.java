@@ -15,7 +15,7 @@ import supfirst.domain.service.UserServiceImpl;
 public class User implements Cloneable {
 	private static final Logger LOGGER = LoggerFactory.getLogger(User.class);
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 	@NotNull
@@ -24,7 +24,7 @@ public class User implements Cloneable {
 	private String email;
 
 	@NotNull
-	@Size(min = 5, max = 20)
+	@Size(min = 5, max = 60)
 	@Column(name = "password_hash", nullable = false)
 	private String passwordHash;
 

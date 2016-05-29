@@ -2,7 +2,7 @@
 
 body {
 	/*background: #eeeded;*/
-	background: #dbdeef;
+	background: #eff5fc;
 }
 .ul-none{
 	list-style-type:none;
@@ -15,11 +15,12 @@ body {
 	padding-left: 0 px   !important;
 }
 .notvisible{
-	visibility:hidden;
+	
+	display: none;
 }
 @media all and (max-width: 800px) {
     .adp-menu-text {
-		font-size: 14px;
+		font-size: 12px;
 		padding: 10px 15px;
     }
 }
@@ -51,4 +52,10 @@ body {
 .header-menu {
 	height: 100px;
 	background-color: #5a9fa5;
+}
+
+/*LOGIN*/
+#modallogin{
+background: #ffffff;	
+	
 }

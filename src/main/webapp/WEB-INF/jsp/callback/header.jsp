@@ -6,12 +6,12 @@
 	<div class="col-xs-6 col-md-9 header-color">
 		<h1>CallBack</h1>
 	</div>
-	<div class="col-xs-3 col-md-3  center-outer">
+	<div class="col-xs-6 col-md-3  center-outer  adp-menu-text">
 		<ul class="ul-none">
 			<li>
 				<div class=" center-inner ">
-					<a href="?lang=en"><img src="/images/flag/Ukraine.png"
-						alt="flag Ukraine"></a>|<a href="?lang=ru"><img
+					<a href="?lang=ua"><img src="/images/flag/Ukraine.png"
+						alt="flag Ukraine"></a><a href="?lang=ru"><img
 						src="/images/flag/Russia.png" alt="flag Russion"></a>
 				</div>
 
@@ -29,7 +29,7 @@
 						</form></li>
 				</c:when>
 				<c:otherwise>
-					<li><a class="center-inner" href="/login"><spring:message
+					<li id = "login"><a class="center-inner"><spring:message
 								code="login.in" text="" /></a></li>
 				</c:otherwise>
 			</c:choose>

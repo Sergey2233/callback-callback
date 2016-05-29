@@ -1,22 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
-<body>
-<nav role="navigation">
+<!--  <nav role="navigation">
     <ul>
         <li><a href="/">Home</a></li>
     </ul>
 </nav>
 
 <h1>Create a new user</h1>
-
-<form role="form" name="form" action="" method="post">
+-->
+<div id="modal-create-user" class =" col-xs-12 col-md-12 notvisible  dialog_window" title= <spring:message code="Enter" text="" />>
+<form role="form" name="form" action="public/create" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
     <div>
@@ -40,9 +41,6 @@
     </div>
     <button type="submit">Save</button>
 </form>
-
-
-
-</body>
+</div>
 </body>
 </html>
