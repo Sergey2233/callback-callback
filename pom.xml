@@ -69,6 +69,11 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-el</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -110,11 +115,7 @@
 			<version>${rest.assured.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency>
+		
 		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-thymeleaf</artifactId> 
 			</dependency> -->
 		<dependency>
@@ -133,20 +134,21 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+     <dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>jsp-api</artifactId>
+    <version>2.2</version>
+</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		<dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-validator</artifactId>
-         </dependency>
-		<dependency>
+	<dependency>	
     <groupId>com.jolbox</groupId>
     <artifactId>bonecp</artifactId>
     <version>0.8.0.RELEASE</version>
-</dependency>
+     </dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>

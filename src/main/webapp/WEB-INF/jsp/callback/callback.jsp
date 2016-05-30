@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page  import="javax.servlet.jsp.PageContext"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +27,13 @@
 	href="<c:url value="/css/jquery-ui.theme.css" />" />
 	<link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/jquery-ui.theme.min.css" />" />
-	
+	<script>var ctx = "${ pageContext.servletContext.contextPath }"
+   
+		console.log(ctx +"ctx")</script>
 	
 </head>
 <body>
+<%=request.getContextPath()%>
 	<div class="conrainer ">
 		<%@ include file="header.jsp"%>
 	</div>
@@ -43,6 +46,7 @@
 	<script type="text/javascript"
 		src="<c:url value="/js/jquery-2.1.4.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/js/site.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/site-ajax.js" />"></script>
 	<script type="text/javascript"
 		src="<c:url value="/js/jquery-ui.min.js" />"></script>
 	<script type="text/javascript"

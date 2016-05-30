@@ -10,6 +10,6 @@
 
     </head>
     <body>
-   <!--  <c:redirect url="/public/callback"/>-->
+       <c:redirect url="/callback/callback"/>
     </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import supfirst.domain.entity.Response;
 import supfirst.domain.entity.Role;
 import supfirst.domain.entity.UserCreateForm;
 import supfirst.domain.service.IUserService;
@@ -24,8 +25,8 @@ import java.util.NoSuchElementException;
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    private final IUserService userService;
-    private final UserCreateFormValidator userCreateFormValidator;
+    private  IUserService userService;
+    private  UserCreateFormValidator userCreateFormValidator;
 
     @Autowired
     public UserController(IUserService userService, UserCreateFormValidator userCreateFormValidator) {
@@ -40,7 +41,7 @@ public class UserController {
 
     
 
-    @RequestMapping("/public/callback")
+    @RequestMapping("/callback/callback")
     public String getUserPage() {
         LOGGER.info("Getting user page callback");
         return  "callback/callback";
@@ -53,33 +54,14 @@ public class UserController {
                 .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
     }
 
-   //@PreAuthorize("hasAuthority('USER')")
-    @RequestMapping(value = "/public/create", method = RequestMethod.GET)
-    public ModelAndView getUserCreatePage() {
-        LOGGER.info("Getting user create form");
-        return new ModelAndView("login/user_create", "form", new UserCreateForm());
-    }
+//   //@PreAuthorize("hasAuthority('USER')")
+//    @RequestMapping(value = "/callback/create", method = RequestMethod.GET)
+//    public ModelAndView getUserCreatePage() {
+//        LOGGER.info("Getting user create form");
+//        return new ModelAndView("login/user_create", "form", new UserCreateForm());
+//    }
 
    // @PreAuthorize("hasAuthority('USER')")
-    @RequestMapping(value = "/public/create", method = RequestMethod.POST)
-    public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
-        LOGGER.info("Processing user create form={}, bindingResult={}", form, bindingResult);
-        if (bindingResult.hasErrors()) {
-            // failed validation
-            return "login/user_create";
-        }
-        try {
-        	form.setRole(Role.USER);
-            userService.create(form);
-        } catch (DataIntegrityViolationException e) {
-            // probably email already exists - very rare case when multiple admins are adding same user
-            // at the same time and form validation has passed for more than one of them.
-            LOGGER.warn("Exception occurred when trying to save the user, assuming duplicate email", e);
-            bindingResult.reject("email.exists", "Email already exists");
-            return "login/user_create";
-        }
-        // ok, redirect
-        return "redirect:/";
-    }
+   
 
 }

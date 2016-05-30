@@ -23,13 +23,14 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/public/**").permitAll()
+                .antMatchers("/", "/callback/**").permitAll()
                 .antMatchers("/users/**").hasAuthority("ADMIN")
-                .anyRequest().fullyAuthenticated()
+                 .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .failureUrl("/login?error")
+                .failureUrl("/authenticationfailure")
+                .defaultSuccessUrl("/authenticated")
                 .usernameParameter("email")
                 .permitAll()
                 .and()
